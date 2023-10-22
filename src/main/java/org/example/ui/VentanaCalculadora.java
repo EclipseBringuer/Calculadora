@@ -2,7 +2,10 @@ package org.example.ui;
 
 import javax.swing.*;
 import java.util.Objects;
-
+/**
+ * Esta clase representa una ventana de una calculadora con una interfaz gráfica.
+ * Permite realizar operaciones matemáticas simples y mostrar el resultado en un campo de texto.
+ */
 public class VentanaCalculadora extends JFrame {
     private JPanel panel;
     private JTextField txtDisplay;
@@ -29,6 +32,10 @@ public class VentanaCalculadora extends JFrame {
     double a, b, result;
     private String operacion = "";
 
+    /**
+     * Constructor de la clase VentanaCalculadora.
+     * Inicializa los componentes de la interfaz de usuario y establece las acciones de los botones.
+     */
     public VentanaCalculadora() {
         this.setContentPane(panel);
         this.setResizable(false);
@@ -37,6 +44,7 @@ public class VentanaCalculadora extends JFrame {
         this.setTitle("Calculadora!!!");//Titulo de la ventana
         this.setLocationRelativeTo(null);
 
+        // Configuración de acciones para los botones
 
         btnVaciar.addActionListener(ev -> {
             txtDisplay.setText("0");
@@ -157,7 +165,7 @@ public class VentanaCalculadora extends JFrame {
 
         btnBorrar.addActionListener(ev -> {
             String backspace = null;
-            if (txtDisplay.getText().length() > 0) {
+            if (!txtDisplay.getText().isEmpty()) {
                 StringBuilder strB = new StringBuilder(txtDisplay.getText());
                 strB.deleteCharAt(txtDisplay.getText().length() - 1);
                 backspace = String.valueOf(strB);
@@ -180,16 +188,16 @@ public class VentanaCalculadora extends JFrame {
         btnResultado.addActionListener(ev -> {
             try {
                 b = Double.parseDouble(txtDisplay.getText());
-                if (operacion == "+") {
+                if (Objects.equals(operacion, "+")) {
                     result = a + b;
                     txtDisplay.setText(String.valueOf(result));
-                } else if (operacion == "-") {
+                } else if (Objects.equals(operacion, "-")) {
                     result = a - b;
                     txtDisplay.setText(String.valueOf(result));
-                } else if (operacion == "*") {
+                } else if (Objects.equals(operacion, "*")) {
                     result = a * b;
                     txtDisplay.setText(String.valueOf(result));
-                } else if (operacion == "/") {
+                } else if (Objects.equals(operacion, "/")) {
                     result = a / b;
                     txtDisplay.setText(String.valueOf(result));
                 }
@@ -205,6 +213,9 @@ public class VentanaCalculadora extends JFrame {
 
     }
 
+    /**
+     * Muestra la ventana de la calculadora.
+     */
     public void load() {
         this.setVisible(true);
     }
