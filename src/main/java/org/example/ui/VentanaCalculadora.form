@@ -19,7 +19,7 @@
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="1" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="275" height="60"/>
-            <preferred-size width="275" height="60"/>
+            <preferred-size width="280" height="60"/>
             <maximum-size width="275" height="60"/>
           </grid>
         </constraints>
